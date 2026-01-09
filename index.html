@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>App Flujo de Caja</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    
+</head>
+<body>
+
+    <h1>App Flujo de Caja</h1>
+
+    <h2>Saldo Actual: $<span id="saldo">0</span></h2>
+
+    <div>
+        <input type="text" id="descripcion" placeholder="Descripción">
+        <input type="number" id="monto" placeholder="Monto">
+        <input type="date" id="fecha">
+
+        <select id="tipo">
+            <option value="ingreso">Ingreso</option>
+            <option value="egreso">Egreso</option>
+        </select>
+
+        <button onclick="agregarMovimiento()">Agregar</button>
+    </div>
+
+    <h3>Movimientos</h3>
+    <ul id="lista-movimientos"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>

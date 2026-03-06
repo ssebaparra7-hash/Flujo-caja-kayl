@@ -2,34 +2,79 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>App Flujo de Caja</title>
+    <title>FLUJO CAJA KAYL BY DELTATECH</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json">
-    
 </head>
 <body>
 
-    <h1>App Flujo de Caja</h1>
+    <div class="contenedor-principal"> 
+        <h1>FLUJO CAJA KAYL BY DELTATECH</h1>
 
-    <h2>Saldo Actual: $<span id="saldo">0</span></h2>
+        <h2>Saldo Total Actual: $<span id="saldo">0</span></h2>
 
-    <div>
-        <input type="text" id="descripcion" placeholder="Descripción">
-        <input type="number" id="monto" placeholder="Monto">
-        <input type="date" id="fecha">
+        <div style="margin-bottom: 20px; text-align: center;">
+            <label><strong>Seleccionar Empresa:</strong></label>
+            <select id="selector-empresa" onchange="cambiarEmpresa()" style="padding: 10px; width: 100%; border-radius: 5px; margin-top: 5px;">
+                <option value="CMPC Santa Fe">CMPC Santa Fe</option>
+                <option value="CMPC Laja">CMPC Laja</option>
+                <option value="CMPC Pacifico">CMPC Pacifico</option>
+                <option value="Nestle">Nestle</option>
+                <option value="Masisa">Masisa</option>
+                <option value="Promasa">Promasa</option>
+                <option value="CMPC Rema Coronel">CMPC Rema Coronel</option>
+                <option value="CMPC Rema Los Angeles">CMPC Rema Los Angeles</option>
+                <option value="CMPC Bucalemu">CMPC Bucalemu</option>
+                <option value="CMPC Acerradero Nacimiento">CMPC Acerradero Nacimiento</option>
+                <option value="CMPC Holding Madera">CMPC Holding Madera</option>
+                <option value="CMPC Plywood Madera">CMPC Plywood Madera</option>
+                <option value="CMPC Niuform Madera">CMPC Niuform Madera</option>
+                <option value="CMPC Cogeneradora Bucalemu">CMPC Cogeneradora Bucalemu</option>
 
-        <select id="tipo">
-            <option value="ingreso">Ingreso</option>
-            <option value="egreso">Egreso</option>
-        </select>
+                
+            </select>
+        </div>
 
-        <button onclick="agregarMovimiento()">Agregar</button>
+        <div class="formulario">
+            <input type="text" id="descripcion" placeholder="Descripción">
+            <input type="number" id="monto" placeholder="Monto">
+            <input type="date" id="fecha">
+            <input type="text" id="documento" placeholder="OC / OS">
+
+            <select id="tipo">
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Egreso</option>
+            </select>
+
+        <div style="margin: 10px 0; text-align: left; width: 100%;">
+            <label style="font-size: 12px; display: block; margin-bottom: 5px;"><strong>Adjuntar Comprobante (Opcional):</strong></label>
+            <input type="file" id="foto-movimiento" accept="image/*" style="width: 100%; font-size: 12px;">
+        </div>
+
+            <button onclick="agregarMovimiento()">Agregar</button>
+        </div>
+
+        <h3>Movimientos</h3>
+        <ul id="lista-movimientos"></ul>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button onclick="exportarExcel()" style="background-color: #28a745; color: white; flex: 1; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
+                Descargar Excel (CSV)
+            </button>
+            <button onclick="resetearTodo()" style="background-color: #ff4d4d; color: white; flex: 1; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
+                Resetear Aplicación
+            </button>
+        </div>
+
+        <div class="buscador-seccion" style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+    <label><strong>Buscar por OC / OS:</strong></label>
+    <input type="text" id="input-busqueda" placeholder="Ingrese OC o OS..." onkeyup="buscarPorOC()" style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc;">
+    <div id="resultado-busqueda" style="margin-top: 10px; font-weight: bold; color: #2c3e50;">
+        </div>
     </div>
+        
 
-    <h3>Movimientos</h3>
-    <ul id="lista-movimientos"></ul>
-
-    <script src="script.js"></script>
+    </div> <script src="script.js"></script> 
 </body>
 </html>
